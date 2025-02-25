@@ -1,17 +1,51 @@
 "use client";
+
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ProgressDemo } from "@/components/HeroText/herotext_components/ProgressBar";
 import { TokenDetails, TokenDistribution } from "@/lib/typescript";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 export function GlowingEffectDemo({tokenDistribution, tokenDetails }: { tokenDistribution: TokenDistribution[], tokenDetails: TokenDetails[] }) {
+
+  const controls = useAnimation(); // Controls the animation
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 }); // Detects visibility
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+
   return (
     <ul className="max-w-7xl w-full mx-auto grid grid-cols-1  md:grid-cols-2 gap-8 px-4 mt-12 md:mt-16">
+      <motion.section
+    ref={ref}
+    initial="hidden"
+    animate={controls}
+    variants={{
+      hidden: { opacity: 0, x: -50 },
+      visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    }}>
       <GridItem1
        tokenDistribution= {tokenDistribution}
       />
+      </motion.section>
+      <motion.section
+    ref={ref}
+    initial="hidden"
+    animate={controls}
+    variants={{
+      hidden: { opacity: 0, x: 50 },
+      visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    }}>
       <GridItem2
        tokenDetails= {tokenDetails}
       />
+      </motion.section>
     </ul>
   );
 }

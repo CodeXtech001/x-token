@@ -2,9 +2,23 @@
 
 import FetchHeroData from "./herotext_components/FetchHeroData";
 import { TextGenerateEffect } from "./herotext_components/text-generate-effect";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 const words = `Join the future of digital finance with the official X token presale platform`;
 function Index() {
+
+  const controls = useAnimation(); // Controls the animation
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 }); // Detects visibility
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
 
     
   return (
@@ -17,8 +31,17 @@ function Index() {
       >
         X Token Presale
       </h1>
+      <motion.section
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+      }}>
       <TextGenerateEffect words={words} />
       <FetchHeroData/>
+      </motion.section>
    
       </div>
     </div>

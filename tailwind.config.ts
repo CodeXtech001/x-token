@@ -55,7 +55,27 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+			blue: {
+				500: "#3b82f6",
+				600: "#2563eb"
+			},
+			purple: {
+				500: "#8b5cf6",
+				600: "#7c3aed"
+			},
+			indigo: {
+				500: "#6366f1",
+				600: "#4f46e5"
+			},
+			pink: {
+				500: "#ec4899",
+				600: "#db2777"
+			},
+			cyan: {
+				500: "#06b6d4",
+				600: "#0891b2"
+			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -36,9 +36,8 @@ function index() {
 
   return (
     <div className='mt-43 md:mt-50 max-w-[1500px] w-full mx-auto'>
-        <div id='Features' className={cn("",{"relative top-64": activeSection === "Features"})}/>
+        <div id='Features' className={cn("",{"": activeSection === "Features"})}/>
         <SectionHeader {...threeisActive}/>
-
         <div className='flex flex-col md:flex-row justify-between md:items-center gap-8 mt-12 md:mt-16'>
             <div className='space-y-2 px-8'>
             <p className='progress_text'>Current Price</p>

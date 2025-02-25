@@ -8,22 +8,27 @@ import { cn } from "@/lib/utils"
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
->(({ className, value, colorpicker, ...props}, ref) => (
-  // @ts-ignore
-  <ProgressPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative h-2 w-full overflow-hidden rounded-full bg-gray-800",
-      className
-    )}
-    {...props}
-  >
-    <ProgressPrimitive.Indicator
-      className={`h-full w-full flex-1  bg-gradient-to-r ${colorpicker ?? ""} transition-all duration-700 ease-in`}
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-    />
-  </ProgressPrimitive.Root>
-))
-Progress.displayName = ProgressPrimitive.Root.displayName
+>(({ className, value, colorpicker, ...props }, ref) => {
+  return (
+    <ProgressPrimitive.Root
+      ref={ref}
+      className={cn(
+        "relative h-2 w-full overflow-hidden rounded-full bg-gray-800",
+        className
+      )}
+      {...props}
+    >
+      <ProgressPrimitive.Indicator
+        className={cn(
+          "h-full w-full flex-1 bg-gradient-to-r transition-all duration-700 ease-in",
+          colorpicker && ` ${colorpicker}` // Fix dynamic color handling
+        )}
+        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  );
+});
 
-export { Progress }
+Progress.displayName = ProgressPrimitive.Root.displayName;
+
+export { Progress };
