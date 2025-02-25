@@ -117,7 +117,7 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
   return (
     <svg
       ref={svgRef}
-      className={cn("w-full h-full fixed top-0 z-10", className)}
+      className={cn("w-full h-full fixed top-0", className)}
     >
       {star && (
         <rect

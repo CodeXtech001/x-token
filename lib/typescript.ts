@@ -28,3 +28,75 @@ export type ProgressUpdateProps = {
 export type ValueProps ={
     value: string;
 }
+
+export type PartnersProps ={
+    partners?:{
+        name: string;
+        icon: string;
+    }[];
+}
+export interface TokenDistribution {
+    category: string;
+    percentage: number;
+    color: string;
+}
+
+export interface TokenDetails {
+    name: string;
+    value: string;
+
+}
+
+export interface Tokenomics {
+    headline: string;
+    paragraph: string;
+    tokenDistribution: TokenDistribution[];
+    tokenDetails: TokenDetails;
+}
+
+export interface RoadmapItems {
+    roadmap2025:RoadmapItem[];
+}
+
+export interface RoadmapItem {
+        quarter: string;
+        title: string;
+        details: string[];
+    }
+
+export interface Reward {
+    icon?: LucideIcon; // Optional since one item lacks an icon
+    title: string;
+    description: string;
+    benefits?: string[]; // Optional for items with additional benefits
+}
+
+export interface ExclusiveRewards {
+headline: string;
+paragraph: string;
+rewards: Reward[];
+}
+
+export interface Privileges {
+    icon?: LucideIcon; // Optional since one item lacks an icon
+    title: string;
+    description: string;
+    benefits?: string[]; 
+}
+
+export interface ElitePrivileges {
+    headline: string;
+    paragraph: string;
+    privileges: Privileges[];
+}
+
+export interface FAQItem {
+    question: string;
+    answer: string;
+  }
+  
+export interface FAQData {
+    headline: string;
+    paragraph: string;
+    questions: FAQItem[];
+}

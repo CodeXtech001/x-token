@@ -8,7 +8,7 @@ function FetchHeroData() {
     <>
         <BackgroundGradientDemo/>
         <HoverBorderGradientDemo value ="Get Tokens"/>
-        <div className='px-6 md:px-0 space-y-2'>
+        <div className=' space-y-2 px-6'>
         <div className='progress_text'>
            <p>Total Progress</p>
            <p>82%</p>

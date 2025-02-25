@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import { Geist, Geist_Mono } from "next/font/google";
+import CoverProvider from "@/components/CoverProvider";
 import "./globals.css";
-import { ShootingStars } from "@/components/ui/shooting-stars";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,8 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black `}
       >
+        <CoverProvider>
          <NavBar/>
         {children}
+        </CoverProvider> 
       </body>
     </html>
   );

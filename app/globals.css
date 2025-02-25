@@ -14,6 +14,9 @@ body {
   .progress_text{
     @apply flex justify-between text-xs font-light text-[rgb(209,213,219,.9)]
   }
+  .progress_text2{
+    @apply flex justify-between text-xs font-medium text-[rgba(232,237,245,0.9)]
+  }
 }
 
 

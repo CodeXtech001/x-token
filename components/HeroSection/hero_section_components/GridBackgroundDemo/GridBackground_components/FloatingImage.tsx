@@ -21,7 +21,7 @@ export default function FloatingImage() {
   }, []);
 
   return (
-    <div className="absolute w-full h-screen flex items-center justify-center overflow-hidden z-20 opacity-70 translate-y-2 md:-translate-y-9">
+    <div className="absolute w-full h-full flex items-center justify-center overflow-hidden z-20 opacity-70 max-sm:-translate-y-10 sm:-translate-y-24 max-md:-translate-y-16 lg:translate-y-6 ">
       <motion.img
         src="/assets/images/Flux_Schnell_A_bold_metallic_X_seamlessly_combined_with_a_futu_3-removebg-preview.png" // Replace with your PNG file
         alt="Floating Image"

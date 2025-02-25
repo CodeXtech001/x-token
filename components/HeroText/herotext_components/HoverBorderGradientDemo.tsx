@@ -7,7 +7,7 @@ import React from "react";
 
 export function HoverBorderGradientDemo({value}: ValueProps) {
   return (
-    <div className={cn("m-40 mt-28 mb-8 flex justify-center text-center",{"m-40 mt-0 mb-0": value === "Buy Now"})}>
+    <div className={cn("m-30 mt-[20%] mb-8 flex justify-center text-center",{"m-30 my-0": value === "Buy Now","m-10 my-6":value ==="Buy Tokens Now"})}>
       <HoverBorderGradient
         containerClassName="rounded-xl group"
         as="button"
