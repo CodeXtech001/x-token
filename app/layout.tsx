@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import { Geist, Geist_Mono } from "next/font/google";
 import CoverProvider from "@/components/CoverProvider";
+import { StarsBackground } from "@/components/ui/stars-background";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,10 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
         <CoverProvider>
+         <Toaster toastOptions={{
+            className: "bg-red-500 text-white",
+          }}/>
          <NavBar/>
+        <ShootingStars/>
+        <StarsBackground/>
         {children}
         </CoverProvider> 
       </body>

@@ -5,7 +5,7 @@ import SectionHeader from "../SectionHeader"
 import { GlowingEffectDemo } from './roadmap_component/GlowingEffectDemo'
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/store";
-import { setActiveSection } from "@/app/features/counter/scrollSlice";
+import { setActiveSection } from "@/app/features/scroll/scrollSlice";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "framer-motion";
@@ -56,7 +56,7 @@ function index() {
      <div id='Roadmap' className={cn("",{"": activeSection === "Roadmap"})}/> 
     <SectionHeader {...RoadMap}/>
        <GlowingEffectDemo {...RoadMap}/>
-     </motion.section>
+      </motion.section>
   )
 }
 

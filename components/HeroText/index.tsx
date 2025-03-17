@@ -22,8 +22,16 @@ function Index() {
 
     
   return (
-    <div className="absolute lg:mt-32 top-4  min-sm:top-0 w-full h-full flex flex-col item-center justify-center overflow-hidden z-30 ">
+    <div className="absolute top-4  min-sm:top-0 w-full h-full flex flex-col item-center justify-center overflow-hidden z-30 ">
         <div className="max-w-3xl w-full mx-auto text-center">
+      <motion.section
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0, y: -50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+      }}>
       <h1
         className="bg-clip-text text-transparent text-[2rem] min-sm:text-[3rem] md:text-[4.5rem] font-extrabold
                    bg-gradient-to-r from-white via-blue-400 to-white 
@@ -31,6 +39,7 @@ function Index() {
       >
         X Token Presale
       </h1>
+      </motion.section>
       <motion.section
       ref={ref}
       initial="hidden"

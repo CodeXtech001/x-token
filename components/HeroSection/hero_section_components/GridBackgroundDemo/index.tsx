@@ -1,4 +1,4 @@
-import FloatingImage from "./GridBackground_components/FloatingImage";
+
 
 export function GridBackgroundDemo() {
     return (

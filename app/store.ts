@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import scrollReducer from "./features/counter/scrollSlice"
+import scrollReducer from "./features/scroll/scrollSlice"
+import transactionstateSliceReducer from "./features/transactionstate/transactionstateSlice"
 // ...
 
 export const store = configureStore({
   reducer: {
     scroll: scrollReducer,
+    transactionstateSlice: transactionstateSliceReducer
   },
 })
 

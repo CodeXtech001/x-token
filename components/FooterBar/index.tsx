@@ -1,7 +1,10 @@
 "use client"
 
 import { useDispatch } from "react-redux";
-import { setActiveSection } from "@/app/features/counter/scrollSlice";
+import { setActiveSection } from "@/app/features/scroll/scrollSlice";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 function index() {
   
@@ -12,6 +15,17 @@ function index() {
     dispatch(setActiveSection(sectionId));
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const controls = useAnimation(); // Controls the animation
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 }); // Detects visibility
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
 
   return (
     <div className="relative mt-24 md:mt-32 px-6 ">
@@ -27,14 +41,24 @@ function index() {
             <h4 className="font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
             Quick Links
             </h4>
-            <ul className="flex flex-col justify-start space-y-2">
+            <div className="relative overflow-hidden w-full">
+            <motion.section
+            
+    ref={ref}
+    initial="hidden"
+    animate={controls}
+    variants={{
+      hidden: { opacity: 0, translateX: 50 },
+      visible: { opacity: 1, translateX: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    }} className="flex flex-col justify-start space-y-2">
                 <div onClick={() => handleScroll("Home")} className="text-gray-400/90 hover:text-blue-400 transition-all duration-300 relative group cursor-pointer">Home</div>
                 <div onClick={() => handleScroll("Features")} className="text-gray-400/90 hover:text-blue-400 transition-all duration-300 relative group cursor-pointer">Features</div>
                 <div onClick={() => handleScroll("Tokenomics")} className="text-gray-400/90 hover:text-blue-400 transition-all duration-300 relative group cursor-pointer">Tokenomics</div>
                 <div onClick={() => handleScroll("Roadmap")} className="text-gray-400/90 hover:text-blue-400 transition-all duration-300 relative group cursor-pointer">Roadmap</div>
                 <div onClick={() => handleScroll("Rewards")} className="text-gray-400/90 hover:text-blue-400 transition-all duration-300 relative group cursor-pointer">Rewards</div>
                 <div onClick={() => handleScroll("FAQ")} className="text-gray-400/90 hover:text-blue-400 transition-all duration-300 relative group cursor-pointer">FAQ</div>
-            </ul>
+            </motion.section>
+            </div>
         </div>
         </div>
         <div className="relative mt-12 md:mt-20">

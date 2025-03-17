@@ -22,7 +22,7 @@ export type SectionHeaderProp = {
 
 export type ProgressUpdateProps = {
     setprogress: number;
-    colorpicker: string;
+    colorpicker?: string;
 }
 
 export type ValueProps ={
@@ -100,3 +100,79 @@ export interface FAQData {
     paragraph: string;
     questions: FAQItem[];
 }
+
+export interface PrivacyPolicySection {
+    title: string;
+    purpose: string;
+    dotcontent?: string[]; // Optional, since not all sections have a list
+  }
+  
+export interface PrivacyPolicy {
+title: string;
+introduction: string;
+sections: PrivacyPolicySection[];
+}
+
+export interface Tier {
+    name: string;
+    tokens: {
+      from: number;
+      to: number | null;
+    };
+    next: string | null;
+    contents: string[];
+    progress: string | null;
+    bonus: number;
+  }
+
+
+export interface Step {
+    stepNumber: number;
+    icon: React.ComponentType; // Type for Lucide icons
+    title: string;
+    description: string;
+}
+export interface Step3s{
+    icon: React.ComponentType; // Type for Lucide icons
+    title: string;
+    description: string; 
+}
+
+
+export interface Network {
+    name: string;
+    description: string;
+  }
+
+
+  export interface Cryptocurrency {
+    name: string;
+    rate: string;
+    icon: string;
+  }
+
+  export interface CryptoOrder {
+    id: number;
+    order: string;
+    crypto_type: string;
+    wallet_address: string;
+    amount: string;
+    status: "pending" | "canceled" | "approved"; // Status type constraint
+    tokens: string;
+    bonus_tokens: string;
+    total_tokens: string;
+    created_at: string;
+    expires_at: string;
+  }
+
+
+  export interface UserDocument {
+    id: number;
+    username: string;
+    usergmail: string;
+    user_balance_token: string;
+    bonus_tokens: string;
+    total_tokens: string;
+    user_status: string;
+  } 
+  

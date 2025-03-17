@@ -7,7 +7,7 @@ import FloatingImage from "@/components/HeroSection/hero_section_components/Grid
 import HeroText from "@/components/HeroText";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/store";
-import { setActiveSection } from "@/app/features/counter/scrollSlice";
+import { setActiveSection } from "@/app/features/scroll/scrollSlice";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 

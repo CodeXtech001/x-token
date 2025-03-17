@@ -1,6 +1,4 @@
 
-"use clients";
-
 import { LucideIcon } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { SectionHeaderProp } from "@/lib/typescript";

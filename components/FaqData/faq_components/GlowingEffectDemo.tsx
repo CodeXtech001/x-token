@@ -1,9 +1,6 @@
 
-"use clients";
-
-import { LucideIcon } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { FAQItem, SectionHeaderProp } from "@/lib/typescript";
+import { FAQItem } from "@/lib/typescript";
 
 export function GlowingEffectDemo({questions}: {questions: FAQItem[]}) {
   return (

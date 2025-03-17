@@ -22,35 +22,39 @@ export function GlowingEffectDemo({tokenDistribution, tokenDetails }: { tokenDis
 
   return (
     <ul className="max-w-7xl w-full mx-auto grid grid-cols-1  md:grid-cols-2 gap-8 px-4 mt-12 md:mt-16">
+    <div className="relative overflow-hidden w-full">      
       <motion.section
     ref={ref}
     initial="hidden"
     animate={controls}
     variants={{
-      hidden: { opacity: 0, x: -50 },
-      visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+      hidden: { opacity: 0, translateX: -50 },
+      visible: { opacity: 1,translateX: 0, transition: { duration: 0.8, ease: "easeOut" } },
     }}>
       <GridItem1
        tokenDistribution= {tokenDistribution}
       />
       </motion.section>
+      </div>
+      <div className="relative overflow-hidden w-full">
       <motion.section
     ref={ref}
     initial="hidden"
     animate={controls}
     variants={{
-      hidden: { opacity: 0, x: 50 },
-      visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+      hidden: { opacity: 0, translateX: 50 },
+      visible: { opacity: 1, translateX: 0, transition: { duration: 0.8, ease: "easeOut" } },
     }}>
       <GridItem2
        tokenDetails= {tokenDetails}
       />
       </motion.section>
+      </div>
     </ul>
   );
 }
 
-const GridItem1 = ({tokenDistribution} :{ tokenDistribution: TokenDistribution[]} ) => {
+const GridItem1 = () => {
   return (
     <li className={`min-h-[14rem] list-none`}>
       <div className="relative h-full rounded-2xl border p-2  md:rounded-3xl md:p-3 group">
@@ -65,16 +69,42 @@ const GridItem1 = ({tokenDistribution} :{ tokenDistribution: TokenDistribution[]
           <div className="relative flex flex-1 flex-col justify-between gap-3">
             <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"> Token Distribution</h2>
             <div className="space-y-3">     
-            {tokenDistribution.map((token,index)=>
-              <div key={index} className=" space-y-2">
+      
+              <div className=" space-y-2">
               <div className='progress_text2'>
-              <p>{token.category}</p>
-              <p>{token.percentage}%</p>
+              <p>Public Sale</p>
+              <p>40%</p>
               </div>
-              <ProgressDemo setprogress= {token.percentage} colorpicker= {token.color}/>
-              
+              <ProgressDemo setprogress= {40} colorpicker= "from-blue-500 to-blue-600"/>
               </div>
-            )}
+              <div className=" space-y-2">
+              <div className='progress_text2'>
+              <p>Development</p>
+              <p>25%</p>
+              </div>
+              <ProgressDemo setprogress= {25} colorpicker= "from-purple-500 to-purple-600"/>
+              </div>
+              <div className=" space-y-2">
+              <div className='progress_text2'>
+              <p>Team & Advisors</p>
+              <p>15%</p>
+              </div>
+              <ProgressDemo setprogress= {15} colorpicker= "from-indigo-500 to-indigo-600"/>
+              </div>
+              <div className=" space-y-2">
+              <div className='progress_text2'>
+              <p>Marketing</p>
+              <p>10%</p>
+              </div>
+              <ProgressDemo setprogress= {10} colorpicker= "from-pink-500 to-pink-600"/>
+              </div>
+              <div className=" space-y-2">
+              <div className='progress_text2'>
+              <p>Reserve</p>
+              <p>10%</p>
+              </div>
+              <ProgressDemo setprogress= {10} colorpicker= "from-cyan-500 to-cyan-600" />
+              </div>
             </div>
           </div>
         </div>

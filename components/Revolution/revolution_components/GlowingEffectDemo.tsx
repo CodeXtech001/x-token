@@ -1,8 +1,9 @@
 
-"use clients";
-
 import { HoverBorderGradientDemo } from "@/components/HeroText/herotext_components/HoverBorderGradientDemo";
+import { buttonVariants } from "@/components/ui/button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export function GlowingEffectDemo() {
   return (
@@ -31,7 +32,10 @@ const GridItem = () => {
                    bg-[length:200%_200%] animate-gradient-move'>Join the Revolution</h2>
                    <p className="text-xl text-gray-300/90 font-light">
                    Don't miss out on this opportunity to be part of the future of digital transactions.</p>
-                    <HoverBorderGradientDemo value ="Buy Tokens Now"/> 
+                   <div className="flex justify-center">
+                   <Link href="/buytoken" className={`${buttonVariants()} text-white font-light px-8 mt-[10%] bg-gradient-to-r from-blue-500 via-purple-500  to-blue-500 bg-[length:200%_200%] animate-gradient-move border border-blue-300/60 hover:border-blue-300 group/button`}><span className="text-white">Buy Tokens Now</span><ChevronRight className="w-6 h-6 group-hover/button:translate-x-4 transition-all duration-300 ease-in-out text-white"/></Link>
+                   </div>
+                  {/* <HoverBorderGradientDemo value ="Buy Tokens Now"/>  */}
           </div>
         </div>
       </div>
