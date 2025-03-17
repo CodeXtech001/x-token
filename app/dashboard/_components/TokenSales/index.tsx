@@ -11,11 +11,17 @@ function index() {
 
   const initialAmount = 5318158; // Default starting amount
 
-  // Get the saved amount from localStorage or use the default
-  const [amount, setAmount] = useState(() => {
+  const [amount, setAmount] = useState(initialAmount); // Default amount first
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Get saved amount from localStorage after client-side render
       const savedAmount = localStorage.getItem("raisedAmount");
-      return savedAmount ? parseInt(savedAmount, 10) : initialAmount;
-  });
+      if (savedAmount) {
+        setAmount(parseInt(savedAmount, 10));
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
